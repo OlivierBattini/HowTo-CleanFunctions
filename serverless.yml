@@ -13,11 +13,11 @@ provider:
 
 functions:
   api:
-    handler: dist/lambda.handler
+    handler: dist/function.handler
     events:
       - http:
           method: any
-          path: /users
+          path: /
 
 custom:
   serverless-offline:
