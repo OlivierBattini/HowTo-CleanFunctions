@@ -1,0 +1,24 @@
+service: loveapp
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-jetpack
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-3
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          method: any
+          path: /users
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
